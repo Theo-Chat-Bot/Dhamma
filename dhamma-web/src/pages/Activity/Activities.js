@@ -107,6 +107,8 @@ export default function Activities() {
     navigate("/");
   };
 
+  const isAdmin = currentUser?.UserRole?.RoleName === "Admin" || currentUser?.UserRoleID === 2;
+
   return (
     <div className="activities-page">
       <NavBar userName={currentUser?.FullName || currentUser?.UserID} onSignOut={signOut} activeMenu="Activity" />
@@ -120,12 +122,12 @@ export default function Activities() {
                 <ActivityList
                   activities={activities}
                   loading={loading}
-                  canUpdate={true}
-                  canDelete={true}
+                  canUpdate={isAdmin}
+                  canDelete={isAdmin}
                   onView={(act) => navigate(`/activity/${act.ID}`)}
                   onEdit={(act) => navigate(`/activity/${act.ID}`)} // This will default to view mode first, user can click edit pencil
                   onDelete={handleDelete}
-                  onAdd={() => navigate("/activity/new")}
+                  onAdd={isAdmin ? () => navigate("/activity/new") : null}
                   onRowDoubleClick={(act) => navigate(`/activity/${act.ID}`)} // Goes to Details (view mode)
                   onSort={handleSort}
                   sortConfig={sortConfig}
@@ -142,8 +144,8 @@ export default function Activities() {
             path=":activityId/*"
             element={
               <ActivityEditPage
-                canUpdate={true}
-                canDelete={true}
+                canUpdate={isAdmin}
+                canDelete={isAdmin}
                 currentUser={currentUser}
                 users={users}
                 fetchActivities={fetchActivities}

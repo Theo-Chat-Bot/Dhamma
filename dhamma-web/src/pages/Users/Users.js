@@ -97,6 +97,8 @@ export default function Users() {
     navigate("/");
   };
 
+  const isAdmin = currentUser?.UserRole?.RoleName === "Admin" || currentUser?.UserRoleID === 2; // Adjust ID based on DB
+
   return (
     <div className="users-page">
       <NavBar userName={currentUser?.FullName || currentUser?.UserID} onSignOut={signOut} activeMenu="User" />
@@ -110,12 +112,12 @@ export default function Users() {
                 <UserList
                   users={users}
                   loading={loading}
-                  canUpdate={true}
-                  canDelete={true}
+                  canUpdate={isAdmin}
+                  canDelete={isAdmin}
                   onView={(user) => navigate(`/users/${user.ID}`)}
                   onEdit={(user) => navigate(`/users/${user.ID}/edit`)}
                   onDelete={handleDelete}
-                  onAdd={() => navigate("/users/new")}
+                  onAdd={isAdmin ? () => navigate("/users/new") : null}
                   onRowDoubleClick={(user) => navigate(`/users/${user.ID}`)}
                   onSort={handleSort}
                   sortConfig={sortConfig}
@@ -132,8 +134,8 @@ export default function Users() {
             path=":userId/*"
             element={
               <UserEditPage
-                canUpdate={true}
-                canDelete={true}
+                canUpdate={isAdmin}
+                canDelete={isAdmin}
                 currentUser={currentUser}
                 showModal={showModal}
                 fetchUsers={fetchUsers}

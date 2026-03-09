@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Dhamma/static/css/main.d8556cfe.css",
-    "main.js": "/Dhamma/static/js/main.12af1b87.js",
+    "main.js": "/Dhamma/static/js/main.60f944d2.js",
     "static/js/453.7a680650.chunk.js": "/Dhamma/static/js/453.7a680650.chunk.js",
+    "static/media/dhamma_nav_icon.png": "/Dhamma/static/media/dhamma_nav_icon.3b9f40cd7a8ad8b88f57.png",
     "static/media/dhamma_image.jpg": "/Dhamma/static/media/dhamma_image.d82b0e376e402addaad1.jpg",
-    "static/media/dhamma_nav_icon.png": "/Dhamma/static/media/dhamma_nav_icon.fa98eeb34a16a284d12b.png",
     "static/media/loading_image.png": "/Dhamma/static/media/loading_image.fa98eeb34a16a284d12b.png",
     "index.html": "/Dhamma/index.html",
     "main.d8556cfe.css.map": "/Dhamma/static/css/main.d8556cfe.css.map",
-    "main.12af1b87.js.map": "/Dhamma/static/js/main.12af1b87.js.map",
+    "main.60f944d2.js.map": "/Dhamma/static/js/main.60f944d2.js.map",
     "453.7a680650.chunk.js.map": "/Dhamma/static/js/453.7a680650.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d8556cfe.css",
-    "static/js/main.12af1b87.js"
+    "static/js/main.60f944d2.js"
   ]
 }
